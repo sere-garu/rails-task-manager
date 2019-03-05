@@ -1,0 +1,12 @@
+<h1>My Tasks</h1>
+<button class="btn btn-light"><%= link_to 'Create a new task', tasks_new_path %></button>
+
+<div class="tasks_container">
+  <% @tasks.each do |task| %>
+    <p><input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
+    <%= task.completed %>
+  <%= link_to task.title, task_path(task) %>
+  <%= link_to 'delete', task_path(task), method: :delete, data:{confirm:"Are you sure you want to delete this task? LAZY ASS"} %></p>
+  <% end %>
+</div>
+
